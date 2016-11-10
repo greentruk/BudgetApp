@@ -1,0 +1,75 @@
+﻿@model BudgetApp.Models.CodeFirst.Household
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h1>Household Dashboard</h1>
+
+<div>
+    <h2>Members</h2>
+
+    <table class="table table-striped" id="IndexTable">
+        <thead>
+            <tr>
+                <th>
+                    Name
+                </th>
+                <th>
+                    Email
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var user in Model.Users)
+            {
+                <tr>
+                    <td>@user.FirstName </td>
+                    <td>@user.Email</td>
+                </tr>
+            }
+
+        </tbody>
+
+    </table>
+</div>
+
+<div>
+
+    <h2>Create Invitation</h2>
+
+    @using (Html.BeginForm("Invite", "Households"))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                <div class="col-md-10">
+                    <h3>Enter Email Below</h3>
+                    <input type="text" name="InvitedEmail" />
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Invite" class="btn btn-primary" />
+                </div>
+            </div>
+        </div>
+    }
+</div>
+<div>
+    <h2>Leave Household</h2>
+    <p>Leave your current household and start a new one.</p>
+    @Html.ActionLink("Leave This Household", "Delete", new { id = Model.Id }, new { @class = "btn btn-danger addPad" })
+</div>
+
+
+
+
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+

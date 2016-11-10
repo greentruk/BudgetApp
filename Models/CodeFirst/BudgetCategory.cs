@@ -10,7 +10,8 @@ namespace BudgetApp.Models.CodeFirst
     {
         public int Id { get; set; }
         public string Name { get; set; }
+        public int HouseholdId { get; set; }
 
-        public virtual BudgetItem BudgetItem { get; set; }
+        public virtual Household Houshold { get; set; }
     }
 }

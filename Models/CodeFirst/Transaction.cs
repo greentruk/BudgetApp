@@ -15,9 +15,12 @@ namespace BudgetApp.Models.CodeFirst
         public int? BudgetCategoryId { get; set; }
         public bool IsReconciled { get; set; }
         public string Description { get; set; }
+        public decimal? ReconciledAmount { get; set; }
+        public string EnteredById { get; set; }
 
         public virtual Account Account { get; set; }
         public virtual TransactionType TransactionType { get; set; }
         public virtual BudgetCategory BudgetCategory { get; set; }
+        public virtual ApplicationUser EnderedBy { get; set; }
     }
 }

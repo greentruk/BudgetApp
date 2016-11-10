@@ -151,7 +151,8 @@ namespace BudgetApp.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { DisplayName = model.FirstName + ' ' + model.LastName, UserName = model.Email, FirstName = model.FirstName, LastName = model.LastName, Email = model.Email };
+                var user = new ApplicationUser { UserName = model.Email, FirstName = model.FirstName, LastName = model.LastName, Email = model.Email };
+
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {

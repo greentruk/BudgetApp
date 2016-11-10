@@ -14,6 +14,8 @@ namespace BudgetApp.Models.CodeFirst
         public DateTimeOffset Created { get; set; }
         public DateTimeOffset? Modified { get; set; }
         public virtual Budget Budget { get; set; }
+        public decimal Amount { get; set; }
+
         public virtual BudgetCategory BudgetCategory { get; set; }
 
     }

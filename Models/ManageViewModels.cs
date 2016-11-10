@@ -20,6 +20,26 @@ namespace BudgetApp.Models
         public IList<AuthenticationDescription> OtherLogins { get; set; }
     }
 
+    //********* Pete Added Model Below *********************//
+    public class ChangeDisplayNameViewModel
+    {
+        [Required]
+        [DataType(DataType.Html)]
+        [Display(Name = "Current DisplayName")]
+        public string OldDisplayName { get; set; }
+
+        [Required]
+        [DataType(DataType.Html)]
+        [Display(Name = "New DisplayName")]
+        public string NewDisplayName { get; set; }
+
+        [DataType(DataType.Html)]
+        [Display(Name = "Confirm new DisplayName")]
+        [Compare("NewDisplayName", ErrorMessage = "The new DisplayName and confirmation DisplayName do not match.")]
+        public string ConfirmDisplayName { get; set; }
+    }
+    //******************************************************//
+
     public class FactorViewModel
     {
         public string Purpose { get; set; }
